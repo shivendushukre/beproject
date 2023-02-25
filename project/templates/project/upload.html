@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+
+<body>
+    <h2 style="text-align: center;">{{msg}}</h2>
+    <div class="container">
+        <div class="card">
+            <h3>Upload Files</h3>
+            <div class="drop_box">
+                <form action="{%url 'home'%}" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    <header>
+                        <h4>Select File here</h4>
+                        {{form.file}}
+                    </header>
+                    <p>Files Supported: PDF, TEXT, DOC , DOCX</p>
+                    <input type="file" hidden accept=".doc,.docx,.pdf" id="fileID" style="display:none;">
+                    <button class="btn">Create Summary</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
